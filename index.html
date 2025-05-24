@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Project DSAL</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <h1>U DECIDE!</h1>
+
+    <label>First Number:</label>
+    <input type="number" step="0.1" id="firstNumber">
+
+    <label>Second Number:</label>
+    <input type="number" step="0.1" id="secondNumber">
+
+    <label>Do you want an over or under?</label>
+    <select id="overUnder">
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+
+    <button onclick="generateNumber()">Generate</button>
+
+    <div class="output" id="output"></div>
+
+    <div class="actions">
+      <button onclick="clearAll()">Clear All</button>
+    </div>
+
+    <div class="history">
+      <strong>History (newest first):</strong>
+      <div id="historyList"></div>
+    </div>
+
+    <div class="sorted">
+      <strong>Sorted Numbers (lowest to highest):</strong>
+      <div id="sortedList"></div>
+    </div>
+  </div>
+
+  <script>
+    const history = [];
+    const stack = new Set();
+
+    function generateNumber() {
+      const start = parseFloat(document.getElementById('firstNumber').value);
+      const end = parseFloat(document.getElementById('secondNumber').value);
+      const choice = document.getElementById('overUnder').value;
+
+      if (isNaN(start) || isNaN(end)) {
+        alert("Please enter valid numbers.");
+        return;
+      }
+
+      const low = Math.min(start, end);
+      const high = Math.max(start, end);
+      const useDecimal = (low % 1 === high % 1);
+      const step = useDecimal ? 1.0 : 1;
+
+      const values = [];
+      for (let val = low; val <= high; val += step) {
+        values.push(Number(val.toFixed(useDecimal ? 1 : 0)));
+      }
+
+      const number = values[Math.floor(Math.random() * values.length)];
+      const resultType = (choice === 'yes') ? (Math.random() < 0.5 ? 'over' : 'under') : '';
+      const message = resultType ? `The number is ${resultType} ${number}` : `The number is ${number}`;
+
+      history.push(message);
+      stack.add(number);
+      document.getElementById('output').innerText = message;
+      render();
+    }
+
+    function deleteFromHistory(index) {
+      const deletedLine = history[index];
+      const deletedNumber = parseFloat(deletedLine.split(" ").pop());
+
+      history.splice(index, 1);
+
+      const remaining = history.map(line => parseFloat(line.split(" ").pop()));
+      stack.clear();
+      remaining.forEach(n => stack.add(n));
+      render();
+    }
+
+    function clearAll() {
+      history.length = 0;
+      stack.clear();
+      document.getElementById('output').innerText = '';
+      document.getElementById('historyList').innerHTML = '';
+      document.getElementById('sortedList').innerHTML = '';
+    }
+
+    function render() {
+      const historyDiv = document.getElementById('historyList');
+      const sortedDiv = document.getElementById('sortedList');
+
+      historyDiv.innerHTML = history
+        .map((line, index) => `<div class="history-item"><span class="history-text">${line}</span><button class="delete-btn" onclick="deleteFromHistory(${index})">&#x2715;</button></div>`)
+        .reverse()
+        .join('');
+
+      const sorted = Array.from(stack).sort((a, b) => a - b);
+      sortedDiv.innerHTML = sorted.map(n => `<div>${Number.isInteger(n) ? n : n.toFixed(1)}</div>`).join('');
+    }
+  </script>
+</body>
+</html>

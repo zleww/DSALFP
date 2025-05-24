@@ -1,0 +1,298 @@
+
+
+@media only screen and (max-width: 767px) {
+  body {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    background: #121212;
+    color: #fff;
+    padding: 20px;
+  }
+  .container {
+    max-width: 600px;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(33, 150, 243, 0.2);
+  }
+  h1 {
+    text-align: center;
+    color: #2196f3;
+  }
+  .output, .history, .sorted {
+    margin-top: 20px;
+    padding: 10px;
+    background: #2e2e2e;
+    border-radius: 5px;
+  }
+  input, button, select {
+    background: #121212;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #2196f3;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+
+    .history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* align top as before */
+    margin: 2px 0;
+    padding-right: 40px; /* extra padding on right so button doesn't overflow */
+  }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 8px;
+    padding-top: 2px;
+    flex-shrink: 0; /* prevent shrinking */
+    width: 24px; /* fix width so it doesn't overflow */
+    height: 24px;
+  }
+
+  .history-text {
+    flex-grow: 1;
+    padding-right: 10px;
+    word-break: break-word;
+  }
+}
+
+
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    background: #121212;
+    color: #fff;
+    padding: 40px;
+  }
+  .container {
+    max-width: 700px;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(33, 150, 243, 0.15);
+  }
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2196f3;
+  }
+  .output, .history, .sorted {
+    margin-top: 25px;
+    padding: 15px;
+    background: #2e2e2e;
+    border-radius: 6px;
+  }
+  input, button, select {
+    background: #121212;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 12px;
+    margin: 6px 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  button {
+    background-color: #2196f3;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+  }
+
+      .history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* align top as before */
+    margin: 2px 0;
+    padding-right: 40px; /* extra padding on right so button doesn't overflow */
+  }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 8px;
+    padding-top: 2px;
+    flex-shrink: 0; /* prevent shrinking */
+    width: 24px; /* fix width so it doesn't overflow */
+    height: 24px;
+  }
+
+  .history-text {
+    flex-grow: 1;
+    padding-right: 10px;
+    word-break: break-word;
+  }
+
+}
+
+/* Desktop */
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  body {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    background: #121212;
+    color: #fff;
+    padding: 60px;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.12);
+  }
+  h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #2196f3;
+  }
+  .output, .history, .sorted {
+    margin-top: 30px;
+    padding: 20px;
+    background: #2e2e2e;
+    border-radius: 8px;
+  }
+  input, button, select {
+    background: #121212;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 14px;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.05rem;
+  }
+  button {
+    background-color: #2196f3;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+
+  .history-item {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 16px;
+}
+
+.history-text {
+  flex-grow: 1;
+  padding-right: 12px; /* add some right padding to keep space between text and button */
+  word-break: break-word;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: -20rem;
+}
+}
+
+/* Ultra-wide */
+@media only screen and (min-width: 1440px) and (max-width: 40000px) {
+  body {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    background: #121212;
+    color: #fff;
+    padding: 80px;
+  }
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(33, 150, 243, 0.1);
+  }
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2196f3;
+  }
+  .output, .history, .sorted {
+    margin-top: 35px;
+    padding: 25px;
+    background: #2e2e2e;
+    border-radius: 10px;
+  }
+  input, button, select {
+    background: #121212;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 16px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+  }
+  button {
+    background-color: #2196f3;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+  }
+
+  .history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align to top, not center */
+  padding-right: 16px;
+}
+
+.history-text {
+  flex-grow: 1;
+  padding-right: 12px; /* add some right padding to keep space between text and button */
+  word-break: break-word;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: -20rem;
+}
+}
